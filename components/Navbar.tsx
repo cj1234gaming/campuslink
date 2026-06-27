@@ -80,7 +80,7 @@ export default function Navbar() {
             aria-expanded={open}
             onClick={handleClick}
           >
-            <Avatar alt={session?.user?.name} src={session?.user?.image} />
+            <Avatar alt={session?.user?.name ?? undefined} src={session?.user?.image ?? undefined} />
           </button>
           <Menu
             id={menuId}

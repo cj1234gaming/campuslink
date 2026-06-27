@@ -26,11 +26,26 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+// 1. Define what properties your session object contains
+interface PostClientProps {
+  session: {
+    user?: {
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+      id?: string | null; // or userId depending on your auth setup
+    };
+    [key: string]: any; // Catch-all for extra auth framework fields
+  };
+}
 
-export default function PostClient({ session }) {
+// 2. Pass the interface directly to your component parameters
+export default function PostClient({ session }: PostClientProps) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // ... rest of your code stays exactly the same
 
   const iv = {
     title: "",

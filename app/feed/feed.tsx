@@ -24,7 +24,7 @@ interface NewsItem {
   [key: string]: any; // Catch-all for extra dynamic fields
 }
 
-export default function FeedClient({ userId }) {
+export default function FeedClient({ userId }:{userId: string | undefined}) {
   // Explicitly type your state array to prevent the infered 'never[]' error
   const [feedItems, setFeedItems] = useState<NewsItem[]>([]);
 
